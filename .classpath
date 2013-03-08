@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry exported="true" kind="lib" path="lib/commons-lang3-3.1.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/mysql-connector-java-5.1.23-bin.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/gson-2.2.2.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/bcprov-ext-jdk15on-148.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/bcprov-jdk15on-148.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/vt-password-3.1.1.jar"/>
+	<classpathentry kind="output" path="out/production/SecureChat2"/>
+</classpath>

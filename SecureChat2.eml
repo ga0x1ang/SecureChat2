@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component inherit-compiler-output="true">
+	<output-test url="file://$MODULE_DIR$/out/test/SecureChat2"/>
+	<exclude-output/>
+	<contentEntry url="file://$MODULE_DIR$"/>
+	<lib name="commons-lang3-3.1" scope="COMPILE">
+		<relative-module-cls project-related="jar://$PROJECT_DIR$/lib/commons-lang3-3.1.jar!/"/>
+	</lib>
+	<lib name="mysql-connector-java-5.1.23-bin" scope="COMPILE">
+		<relative-module-cls project-related="jar://$PROJECT_DIR$/lib/mysql-connector-java-5.1.23-bin.jar!/"/>
+	</lib>
+	<lib name="gson-2.2.2" scope="COMPILE">
+		<relative-module-cls project-related="jar://$PROJECT_DIR$/lib/gson-2.2.2.jar!/"/>
+	</lib>
+	<lib name="bcprov-ext-jdk15on-148" scope="COMPILE">
+		<relative-module-cls project-related="jar://$PROJECT_DIR$/lib/bcprov-ext-jdk15on-148.jar!/"/>
+	</lib>
+	<lib name="bcprov-jdk15on-148" scope="COMPILE">
+		<relative-module-cls project-related="jar://$PROJECT_DIR$/lib/bcprov-jdk15on-148.jar!/"/>
+	</lib>
+	<lib name="vt-password-3.1.1" scope="COMPILE">
+		<relative-module-cls project-related="jar://$PROJECT_DIR$/lib/vt-password-3.1.1.jar!/"/>
+	</lib>
+</component>

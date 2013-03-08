@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="securechat2" default="all">
+  
+  
+  <property file="securechat2.properties"/>
+  <!-- Uncomment the following property if no tests compilation is needed -->
+  <!-- 
+  <property name="skip.tests" value="true"/>
+   -->
+  
+  <!-- Compiler options -->
+  
+  <property name="compiler.debug" value="on"/>
+  <property name="compiler.generate.no.warnings" value="off"/>
+  <property name="compiler.args" value=""/>
+  <property name="compiler.max.memory" value="128m"/>
+  <patternset id="ignored.files">
+    <exclude name="**/CVS/**"/>
+    <exclude name="**/SCCS/**"/>
+    <exclude name="**/RCS/**"/>
+    <exclude name="**/rcs/**"/>
+    <exclude name="**/.DS_Store/**"/>
+    <exclude name="**/.svn/**"/>
+    <exclude name="**/.pyc/**"/>
+    <exclude name="**/.pyo/**"/>
+    <exclude name="**/*.pyc/**"/>
+    <exclude name="**/*.pyo/**"/>
+    <exclude name="**/.git/**"/>
+    <exclude name="**/*.hprof/**"/>
+    <exclude name="**/_svn/**"/>
+    <exclude name="**/.hg/**"/>
+    <exclude name="**/*.lib/**"/>
+    <exclude name="**/*~/**"/>
+    <exclude name="**/__pycache__/**"/>
+    <exclude name="**/.bundle/**"/>
+    <exclude name="**/*.rbc/**"/>
+  </patternset>
+  <patternset id="library.patterns">
+    <include name="*.zip"/>
+    <include name="*.apk"/>
+    <include name="*.war"/>
+    <include name="*.egg"/>
+    <include name="*.ear"/>
+    <include name="*.ane"/>
+    <include name="*.swc"/>
+    <include name="*.jar"/>
+  </patternset>
+  <patternset id="compiler.resources">
+    <exclude name="**/?*.java"/>
+    <exclude name="**/?*.form"/>
+    <exclude name="**/?*.class"/>
+    <exclude name="**/?*.groovy"/>
+    <exclude name="**/?*.scala"/>
+    <exclude name="**/?*.flex"/>
+    <exclude name="**/?*.kt"/>
+    <exclude name="**/?*.clj"/>
+  </patternset>
+  
+  <!-- JDK definitions -->
+  
+  <property name="jdk.bin.1.6" value="${jdk.home.1.6}/bin"/>
+  <path id="jdk.classpath.1.6">
+    <fileset dir="${jdk.home.1.6}">
+      <include name="lib/deploy.jar"/>
+      <include name="lib/dt.jar"/>
+      <include name="lib/javaws.jar"/>
+      <include name="lib/jce.jar"/>
+      <include name="lib/jconsole.jar"/>
+      <include name="lib/management-agent.jar"/>
+      <include name="lib/plugin.jar"/>
+      <include name="lib/sa-jdi.jar"/>
+      <include name="../Classes/charsets.jar"/>
+      <include name="../Classes/classes.jar"/>
+      <include name="../Classes/jsse.jar"/>
+      <include name="../Classes/ui.jar"/>
+      <include name="lib/ext/apple_provider.jar"/>
+      <include name="lib/ext/dnsns.jar"/>
+      <include name="lib/ext/localedata.jar"/>
+      <include name="lib/ext/sunjce_provider.jar"/>
+      <include name="lib/ext/sunpkcs11.jar"/>
+    </fileset>
+  </path>
+  
+  <property name="project.jdk.home" value="${jdk.home.1.6}"/>
+  <property name="project.jdk.bin" value="${jdk.bin.1.6}"/>
+  <property name="project.jdk.classpath" value="jdk.classpath.1.6"/>
+  <!-- Register Custom Compiler Taskdefs -->
+  <property name="javac2.home" value="${idea.home}/lib"/>
+  <path id="javac2.classpath">
+    <pathelement location="${javac2.home}/javac2.jar"/>
+    <pathelement location="${javac2.home}/jdom.jar"/>
+    <pathelement location="${javac2.home}/asm4-all.jar"/>
+    <pathelement location="${javac2.home}/jgoodies-forms.jar"/>
+  </path>
+  <target name="register.custom.compilers">
+    <taskdef name="javac2" classname="com.intellij.ant.Javac2" classpathref="javac2.classpath"/>
+    <taskdef name="instrumentIdeaExtensions" classname="com.intellij.ant.InstrumentIdeaExtensions" classpathref="javac2.classpath"/>
+  </target>
+  
+  <!-- Modules -->
+  
+  
+  <!-- Module SecureChat2 -->
+  
+  <dirname property="module.securechat2.basedir" file="${ant.file}"/>
+  
+  
+  <property name="module.jdk.home.securechat2" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.securechat2" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.securechat2" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.securechat2" value="${compiler.args}"/>
+  
+  <property name="securechat2.output.dir" value="${module.securechat2.basedir}/out/production/SecureChat2"/>
+  <property name="securechat2.testoutput.dir" value="${module.securechat2.basedir}/out/test/SecureChat2"/>
+  
+  <path id="securechat2.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="securechat2.module.production.classpath">
+    <path refid="${module.jdk.classpath.securechat2}"/>
+    <pathelement location="${basedir}/lib/commons-lang3-3.1.jar"/>
+    <pathelement location="${basedir}/lib/mysql-connector-java-5.1.23-bin.jar"/>
+    <pathelement location="${basedir}/lib/gson-2.2.2.jar"/>
+    <pathelement location="${basedir}/lib/bcprov-ext-jdk15on-148.jar"/>
+    <pathelement location="${basedir}/lib/bcprov-jdk15on-148.jar"/>
+    <pathelement location="${basedir}/lib/vt-password-3.1.1.jar"/>
+  </path>
+  
+  <path id="securechat2.runtime.production.module.classpath">
+    <pathelement location="${securechat2.output.dir}"/>
+    <pathelement location="${basedir}/lib/commons-lang3-3.1.jar"/>
+    <pathelement location="${basedir}/lib/mysql-connector-java-5.1.23-bin.jar"/>
+    <pathelement location="${basedir}/lib/gson-2.2.2.jar"/>
+    <pathelement location="${basedir}/lib/bcprov-ext-jdk15on-148.jar"/>
+    <pathelement location="${basedir}/lib/bcprov-jdk15on-148.jar"/>
+    <pathelement location="${basedir}/lib/vt-password-3.1.1.jar"/>
+  </path>
+  
+  <path id="securechat2.module.classpath">
+    <path refid="${module.jdk.classpath.securechat2}"/>
+    <pathelement location="${securechat2.output.dir}"/>
+    <pathelement location="${basedir}/lib/commons-lang3-3.1.jar"/>
+    <pathelement location="${basedir}/lib/mysql-connector-java-5.1.23-bin.jar"/>
+    <pathelement location="${basedir}/lib/gson-2.2.2.jar"/>
+    <pathelement location="${basedir}/lib/bcprov-ext-jdk15on-148.jar"/>
+    <pathelement location="${basedir}/lib/bcprov-jdk15on-148.jar"/>
+    <pathelement location="${basedir}/lib/vt-password-3.1.1.jar"/>
+  </path>
+  
+  <path id="securechat2.runtime.module.classpath">
+    <pathelement location="${securechat2.testoutput.dir}"/>
+    <pathelement location="${securechat2.output.dir}"/>
+    <pathelement location="${basedir}/lib/commons-lang3-3.1.jar"/>
+    <pathelement location="${basedir}/lib/mysql-connector-java-5.1.23-bin.jar"/>
+    <pathelement location="${basedir}/lib/gson-2.2.2.jar"/>
+    <pathelement location="${basedir}/lib/bcprov-ext-jdk15on-148.jar"/>
+    <pathelement location="${basedir}/lib/bcprov-jdk15on-148.jar"/>
+    <pathelement location="${basedir}/lib/vt-password-3.1.1.jar"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.securechat2">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.securechat2">
+    <patternset refid="excluded.from.module.securechat2"/>
+  </patternset>
+  
+  <path id="securechat2.module.sourcepath">
+    <dirset dir="${module.securechat2.basedir}">
+      <include name="src"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.securechat2" depends="compile.module.securechat2.production,compile.module.securechat2.tests" description="Compile module SecureChat2"/>
+  
+  <target name="compile.module.securechat2.production" depends="register.custom.compilers" description="Compile module SecureChat2; production classes">
+    <mkdir dir="${securechat2.output.dir}"/>
+    <javac2 destdir="${securechat2.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.securechat2}/javac">
+      <compilerarg line="${compiler.args.securechat2}"/>
+      <bootclasspath refid="securechat2.module.bootclasspath"/>
+      <classpath refid="securechat2.module.production.classpath"/>
+      <src refid="securechat2.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.securechat2"/>
+    </javac2>
+    
+    <copy todir="${securechat2.output.dir}">
+      <fileset dir="${module.securechat2.basedir}/src">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.securechat2.tests" depends="register.custom.compilers,compile.module.securechat2.production" description="compile module SecureChat2; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.securechat2" description="cleanup module">
+    <delete dir="${securechat2.output.dir}"/>
+    <delete dir="${securechat2.testoutput.dir}"/>
+  </target>
+  
+  <target name="init" description="Build initialization">
+    <!-- Perform any build initialization in this target -->
+  </target>
+  
+  <target name="clean" depends="clean.module.securechat2" description="cleanup all"/>
+  
+  <target name="build.modules" depends="init, clean, compile.module.securechat2" description="build all modules"/>
+  
+  <target name="all" depends="build.modules" description="build all"/>
+</project>
